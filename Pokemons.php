@@ -1,14 +1,15 @@
-//coloque dentro da pasta"modelo"
 <?php
+
+//coloque dentro da pasta"modelo"
 
 class Pokemons
 {
     private $nome;
-    private string $descricao;
+    private $descricao;
     private $link;
     private $tipo1;
     private $tipo2;
-    private int $evolucao;
+    private $evolucao;
 
     /**
      * Get the value of nome
