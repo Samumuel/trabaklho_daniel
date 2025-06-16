@@ -21,7 +21,7 @@ class Conexao
                 new PDO(
                     "mysql:host=localhost;dbname=pokemon",
                     "root",
-                    "bancodedados",
+                    "",
                     $opcoes
                 );
         }
