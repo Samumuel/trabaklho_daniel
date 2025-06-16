@@ -54,23 +54,30 @@ if (isset($_POST["nome"])) {
     }
     if (count($erros) == 0) {
         //Inserir as informações na base de dados
-        $sql = "INSERT INTO livros (nome, descricao, link, evolucao, tipo, tipo2) 
+        $sql = "INSERT INTO pokemon (nome, descricao, link, evolucao, tipo1, tipo2) 
         VALUES (?, ?, ?, ?, ?, ?)";
         $stm = $con->prepare($sql);
-        $stm->execute([$nome, $descricao, $link, $evolucao, $tipo, $tipo2]);
+        $stm->execute([$nome, $descricao, $link, $evolucao, $tipo1, $tipo2]);
 
         //Redirecionar para a mesma pagina a fim de limpar o buffer do navegador
         header("location: index.php");
     } else {
         $msgErro = implode("<br>", $erros);
     }
-    $pokemon = new Pokemons();
-    $pokemon->setNome($nome)
-        ->setDescricao($descricao)
-        ->setLink($link)
-        ->setEvolucao((int)$evolucao)
-        ->setTipo1($tipo1)
-        ->setTipo2($tipo2);
+    $pokemon = new Pokemon(
+        $_POST["nome"], 
+        $_POST["descricao"], 
+        $_POST["link"], 
+        $_POST["tipo1"], 
+        $_POST["tipo2"], 
+        $_POST["evolucao"]);
+    $erros = $pokemon->validar();
+
+    if (empty($erros)) {
+        $pokemon->salvar();
+        header("Location: index.php"); // evita reenvio duplicado
+        exit;
+    }
 
     if ($pokemon->salvar($con)) {
         header("Location: index.php");
@@ -79,7 +86,6 @@ if (isset($_POST["nome"])) {
         $msgErro = "Erro ao salvar no banco de dados.";
     }
 }
-
 
 
 ?>
@@ -95,36 +101,36 @@ if (isset($_POST["nome"])) {
     <div class="text-center d-flex justify-content-center align-items-center" style="min-height: 70vh;">
         <div class="container">
             <div class="row justify-content-center">
+                <h1>Listagem</h1>
+                <table border="2" style="background-color: white;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Evolução</th>
+                        <th>Tipo 1</th>
+                        <th>Tipo 2</th>
+                    </tr>
+
+                    <?php foreach ($pokemons as $pk):   ?>
+                    <tr>
+                        <td><?= $pk["id"] ?></td>
+                        <td><?= $pk["nome"] ?></td>
+                        <td><?= $pk["descricao"] ?></td>
+                        <td><?= $pk["evolucao"] ?></td>
+                        <td><?= $pk["tipo1"] ?></td>
+                        <td><?= $pk["tipo2"] ?></td>
+                        <td><a href="excluir.php?excluir=<?= $pk["id"] ?>">Excluir</a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+                <br>
                 <div class="col-md-6 col-lg-4">
                     <main class="form-signin w-100 m-auto text-center">
 
-                        <h1>Listagem</h1>
-
-                        <table border="1">
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Descrição</th>
-                                <th>Evolução</th>
-                                <th>Tipo 1</th>
-                                <th>Tipo 2</th>
-                            </tr>
-
-                            <?php foreach ($pokemons as $pk):   ?>
-                                <tr>
-                                    <td><?= $pk["id"] ?></td>
-                                    <td><?= $pk["nome"] ?></td>
-                                    <td><?= $pk["descricao"] ?></td>
-                                    <td><?= $pk["evolucao"] ?></td>
-                                    <td><?= $pk["tipo1"] ?></td>
-                                    <td><?= $pk["tipo2"] ?></td>
-                                    <td><a href="excluir.php?excluir=<?= $l["id"] ?>">Excluir</a></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </table>
                         <img class="mb-3" src="https://www.freeiconspng.com/uploads/pokeball-pokemon-ball-picture-11.png" alt="Pokebola" width="72" height="72">
                         <h1 class="h3 mb-3 fw-normal">Cadastre o Pokémon</h1>
-                        <form action="card.php" method="POST">
+                        <form action="" method="POST">
                             <div class="mb-3">
                                 <input type="text" class="form-control" placeholder="Nome do Pokémon" name="nome">
                             </div>
@@ -192,6 +198,7 @@ if (isset($_POST["nome"])) {
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success">Enviar</button>
+                                <button type="submit" formaction="card.php" class="btn btn-primary">Ir para o Card</button>
                             </div>
                         </form>
                         <div id="erros" style="color: red;">
