@@ -14,7 +14,7 @@ class Pokemons
     /**
      * Get the value of nome
      */
-    public function getNome(): string
+    public function getNome()
     {
         return $this->nome;
     }
@@ -22,7 +22,7 @@ class Pokemons
     /**
      * Set the value of nome
      */
-    public function setNome(string $nome): self
+    public function setNome($nome): self
     {
         $this->nome = $nome;
 
@@ -32,7 +32,7 @@ class Pokemons
     /**
      * Get the value of descricao
      */
-    public function getDescricao(): string
+    public function getDescricao()
     {
         return $this->descricao;
     }
@@ -40,7 +40,7 @@ class Pokemons
     /**
      * Set the value of descricao
      */
-    public function setDescricao(string $descricao): self
+    public function setDescricao($descricao): self
     {
         $this->descricao = $descricao;
 
@@ -104,7 +104,7 @@ class Pokemons
     /**
      * Get the value of evolucao
      */
-    public function getEvolucao(): int
+    public function getEvolucao()
     {
         return $this->evolucao;
     }
@@ -112,7 +112,7 @@ class Pokemons
     /**
      * Set the value of evolucao
      */
-    public function setEvolucao(int $evolucao): self
+    public function setEvolucao($evolucao): self
     {
         $this->evolucao = $evolucao;
 
@@ -137,81 +137,81 @@ class Pokemons
 
     public function getVerificaTipo1()
     {
-        if ($this->getTipo1() == 'No') {
+        if ($this->getTipo1() == 'Normal') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/normal.svg";
-        } else if ($this->getTipo1() == 'Fo') {
+        } else if ($this->getTipo1() == 'Fogo') {
             return  "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/fire.svg";
-        } else if ($this->getTipo1() == 'Ag') {
+        } else if ($this->getTipo1() == 'Água') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/water.svg";
-        } elseif ($this->getTipo1() == 'El') {
+        } elseif ($this->getTipo1() == 'Elétrico') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/electric.svg";
-        } elseif ($this->getTipo1() == 'Gr') {
+        } elseif ($this->getTipo1() == 'Grama') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/grass.svg";
-        } elseif ($this->getTipo1() == 'Ge') {
+        } elseif ($this->getTipo1() == 'Gelo') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/ice.svg";
-        } elseif ($this->getTipo1() == 'Lu') {
+        } elseif ($this->getTipo1() == 'Lutador') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/fighting.svg";
-        } elseif ($this->getTipo1() == 'Ve') {
+        } elseif ($this->getTipo1() == 'Veneno') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/poison.svg";
-        } elseif ($this->getTipo1() == 'Te') {
+        } elseif ($this->getTipo1() == 'Terra') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/ground.svg";
-        } elseif ($this->getTipo1() == 'Vo') {
+        } elseif ($this->getTipo1() == 'Voador') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/flying.svg";
-        } elseif ($this->getTipo1() == 'Ps') {
+        } elseif ($this->getTipo1() == 'Psíquico') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/psychic.svg";
-        } elseif ($this->getTipo1() == 'In') {
+        } elseif ($this->getTipo1() == 'Inseto') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/bug.svg";
-        } elseif ($this->getTipo1() == 'Fa') {
+        } elseif ($this->getTipo1() == 'Fada') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/fairy.svg";
-        } elseif ($this->getTipo1() == 'Dr') {
+        } elseif ($this->getTipo1() == 'Dragão') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/dragon.svg";
-        } elseif ($this->getTipo1() == 'Me') {
+        } elseif ($this->getTipo1() == 'Metal') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/steel.svg";
-        } elseif ($this->getTipo1() == 'Pe') {
+        } elseif ($this->getTipo1() == 'Pedra') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/rock.svg";
-        } elseif ($this->getTipo1() == 'Ft') {
+        } elseif ($this->getTipo1() == 'Fantasma') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/ghost.svg";
-        } elseif ($this->getTipo1() == 'Es') {
+        } elseif ($this->getTipo1() == 'Escuridão') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/dark.svg";
         }
     }
     public function getVerificaTipo2()
     {
-        if ($this->getTipo2() == 'No') {
+        if ($this->getTipo2() == 'Normal') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/normal.svg";
-        } else if ($this->getTipo2() == 'Fo') {
+        } else if ($this->getTipo2() == 'Fogo') {
             return  "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/fire.svg";
-        } else if ($this->getTipo2() == 'Ag') {
+        } else if ($this->getTipo2() == 'Água') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/water.svg";
-        } elseif ($this->getTipo2() == 'El') {
+        } elseif ($this->getTipo2() == 'Elétrico') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/electric.svg";
-        } elseif ($this->getTipo2() == 'Gr') {
+        } elseif ($this->getTipo2() == 'Grama') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/grass.svg";
-        } elseif ($this->getTipo2() == 'Ge') {
+        } elseif ($this->getTipo2() == 'Gelo') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/ice.svg";
-        } elseif ($this->getTipo2() == 'Lu') {
+        } elseif ($this->getTipo2() == 'Lutador') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/fighting.svg";
-        } elseif ($this->getTipo2() == 'Ve') {
+        } elseif ($this->getTipo2() == 'Veneno') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/poison.svg";
-        } elseif ($this->getTipo2() == 'Te') {
+        } elseif ($this->getTipo2() == 'Terra') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/ground.svg";
-        } elseif ($this->getTipo2() == 'Vo') {
+        } elseif ($this->getTipo2() == 'Voador') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/flying.svg";
-        } elseif ($this->getTipo2() == 'Ps') {
+        } elseif ($this->getTipo2() == 'Psíquico') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/psychic.svg";
-        } elseif ($this->getTipo2() == 'In') {
+        } elseif ($this->getTipo2() == 'Inseto') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/bug.svg";
-        } elseif ($this->getTipo2() == 'Fa') {
+        } elseif ($this->getTipo2() == 'Fada') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/fairy.svg";
-        } elseif ($this->getTipo2() == 'Dr') {
+        } elseif ($this->getTipo2() == 'Dragão') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/dragon.svg";
-        } elseif ($this->getTipo2() == 'Me') {
+        } elseif ($this->getTipo2() == 'Metal') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/steel.svg";
-        } elseif ($this->getTipo2() == 'Pe') {
+        } elseif ($this->getTipo2() == 'Pedra') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/rock.svg";
-        } elseif ($this->getTipo2() == 'Ft') {
+        } elseif ($this->getTipo2() == 'Fantasma') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/ghost.svg";
-        } elseif ($this->getTipo2() == 'Es') {
+        } elseif ($this->getTipo2() == 'Escuridão') {
             return "https://www.lmcorp.com.br/arquivos/img/assets/tcg_2/icons/types/dark.svg";
         } else {
             return false;
@@ -219,20 +219,23 @@ class Pokemons
     }
     public function getGeraCard()
     {
-        echo "<div class='d-flex justfy-content-center align-items-center vh-100'>";
-        echo "<div class='rounded-4 border border-5 border-primary'style='width: 30rem; margin: 20px; background-color: white'>";
-        echo "Pokémon:" . $this->getNome() . "<br><br>";
-        echo "Descrição: " . $this->getDescricao() . "<br><br>";
-        echo "Fase evolutíva: " . $this->getEvolucao() . "<br><br>";
-        echo "Tipo 1: <img style='width='50' height='50';  src='" . $this->getVerificaTipo1() . "' />";
-        if ($this->getVerificaTipo2()) {
-            echo "Tipo 2: <img style='width='50' height='50'; src='" . $this->getVerificaTipo2() . "' /><br><br>";
-        } else {
-            echo "<br>";
+        $html = "<div class='card rounded-4 border border-3 border-primary' style='width: 18rem; background-color: white'>";
+        $html .= "<div class='card-body'>";
+        $html .= "<h5 class='card-title'>Pokémon: " . $this->getNome() . "</h5>";
+        $html .= "<p class='card-text'>Descrição: " . $this->getDescricao() . "</p>";
+        $html .= "<p class='card-text'>Fase evolutíva: " . $this->getEvolucao() . "</p>";
+        $html .= "<p class='card-text'>";
+        $html .= "Tipo 1: <img width='40' height='40' src='" . $this->getVerificaTipo1() . "' />";
+        if ($this->getVerificaTipo2() != false) {
+            $html .= " Tipo 2: <img width='40' height='40' src='" . $this->getVerificaTipo2() . "' />";
         }
-        echo "<hr><img style='width: 100%; height: auto;' src='" . $this->getLink() . "' /><br><br>";
-        echo "<a class='mx-5' href='formulario.php' style = 'color: black;'>Cadastrar outro Pokémon</a>";
-        echo "</div>";
-        echo "</div>";
+        $html .= "</p>";
+        $html .= "</div>";
+        $html .= "<img class='card-img-bottom' src='" . $this->getLink() . "' alt='Imagem do Pokémon'>";
+        $html .= "<div class='card-body text-center'>";
+        $html .= "</div>";
+        $html .= "</div>";
+    
+        return $html;
     }
 }
