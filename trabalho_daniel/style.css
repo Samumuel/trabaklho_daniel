@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Pokemon Classic';
+    src: url('fonts/Pokemon-Classic(1).ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Pokemon Classic', sans-serif;
+    background-image: url("https://pokedle.net/img/Background.b373eb68.png");
+    background-position: center top;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: 13px;
+}
