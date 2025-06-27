@@ -1,21 +1,13 @@
 <?php
 
+require_once("util/Conexao.php");
 require_once("modelo/Pokemons.php");
 
-$nome = $_POST['nome'];
-$descricao = $_POST['descricao'];
-$link = $_POST['link'];
-$evolucao = $_POST['evolucao'];
-$tipo1 = $_POST['tipo1'];
-$tipo2 = $_POST['tipo2'];
-
-$Card = new Pokemons(
-    $_POST["nome"], 
-    $_POST["descricao"], 
-    $_POST["link"], 
-    $_POST["tipo1"], 
-    $_POST["tipo2"], 
-    $_POST["evolucao"]);
+$con = Conexao::getConexao();
+$sql = "SELECT * FROM pokemon";
+$stm = $con->prepare($sql);
+$stm->execute();
+$pokemons = $stm->fetchAll();
 
 ?>
 
@@ -29,9 +21,28 @@ $Card = new Pokemons(
 </head>
 
 <body>
-    <div class="text-center d-flex justify-content-center align-items-center" style="min-height: 70vh;">
-        <?php echo $Card->getGeraCard(); ?>
+<div class="container py-5">
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+        <?php
+            foreach ($pokemons as $pk){
+                $pokemon = new Pokemons();
+                $pokemon->setNome($pk["nome"]);
+                $pokemon->setDescricao($pk["descricao"]);
+                $pokemon->setLink($pk["link"]);
+                $pokemon->setEvolucao($pk["evolucao"]);
+                $pokemon->setTipo1($pk["tipo1"]);
+                $pokemon->setTipo2($pk["tipo2"]);
+
+                echo $pokemon->getGeraCard(); 
+            }
+        ?>
     </div>
+    <div class="d-flex justify-content-center mt-4">
+        <a href='index.php' class='btn btn-outline-dark btn-sm card rounded-4 border border-3 border-primary text-center' style='width: 12rem'>
+            Cadastrar outro Pokémon
+        </a>
+    </div>
+</div>
 </body>
 <style>
     @font-face {
