@@ -64,14 +64,14 @@ if (isset($_POST["nome"])) {
     } else {
         $msgErro = implode("<br>", $erros);
     }
-    $pokemon = new Pokemon(
+    $pokemon = new Pokemons(
         $_POST["nome"], 
         $_POST["descricao"], 
         $_POST["link"], 
         $_POST["tipo1"], 
         $_POST["tipo2"], 
-        $_POST["evolucao"]);
-    $erros = $pokemon->validar();
+        $_POST["evolucao"]
+    );
 
     if (empty($erros)) {
         $pokemon->salvar();
@@ -100,9 +100,9 @@ if (isset($_POST["nome"])) {
 <body>
     <div class="text-center d-flex justify-content-center align-items-center" style="min-height: 70vh;">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center ">
                 <h1>Listagem</h1>
-                <table border="2" style="background-color: white;">
+                <table border="2" class="border-primary" style="background-color: white;">
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
@@ -129,69 +129,69 @@ if (isset($_POST["nome"])) {
                     <main class="form-signin w-100 m-auto text-center">
 
                         <img class="mb-3" src="https://www.freeiconspng.com/uploads/pokeball-pokemon-ball-picture-11.png" alt="Pokebola" width="72" height="72">
-                        <h1 class="h3 mb-3 fw-normal">Cadastre o Pokémon</h1>
+                        <h1 class="h3 mb-3 fw-normal border-primary">Cadastre o Pokémon</h1>
                         <form action="" method="POST">
-                            <div class="mb-3">
+                            <div class="mb-3 border-primary">
                                 <input type="text" class="form-control" placeholder="Nome do Pokémon" name="nome">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 border-primary">
                                 <input type="text" class="form-control" placeholder="Descrição do pokémon" name="descricao">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 border-primary">
                                 <input type="text" class="form-control" placeholder="Informe o link da imagem" name="link">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 border-primary">
                                 <input type="number" min="1" max="3" class="form-control" placeholder="Informe o estágio de evolução" name="evolucao">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 border-primary">
                                 <select class="form-select" name="tipo1">
                                     <option value="">Selecione o tipo</option>
-                                    <option value="No">Normal</option>
-                                    <option value="Fo">Fogo</option>
-                                    <option value="Ag">Água</option>
-                                    <option value="El">Elétrico</option>
-                                    <option value="Gr">Grama</option>
-                                    <option value="Ge">Gelo</option>
-                                    <option value="Lu">Lutador</option>
-                                    <option value="Ve">Veneno</option>
-                                    <option value="Te">Terra</option>
-                                    <option value="Vo">Voador</option>
-                                    <option value="Ps">Psíquico</option>
-                                    <option value="In">Inseto</option>
-                                    <option value="Fa">Fada</option>
-                                    <option value="Dr">Dragão</option>
-                                    <option value="Me">Metal</option>
-                                    <option value="Pe">Pedra</option>
-                                    <option value="Ft">Fantasma</option>
-                                    <option value="Es">Escuridão</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Fogo">Fogo</option>
+                                    <option value="Água">Água</option>
+                                    <option value="Elétrico">Elétrico</option>
+                                    <option value="Grama">Grama</option>
+                                    <option value="Gelo">Gelo</option>
+                                    <option value="Lutador">Lutador</option>
+                                    <option value="Veneno">Veneno</option>
+                                    <option value="Terra">Terra</option>
+                                    <option value="Voador">Voador</option>
+                                    <option value="Psíquico">Psíquico</option>
+                                    <option value="Inseto">Inseto</option>
+                                    <option value="Fada">Fada</option>
+                                    <option value="Dragão">Dragão</option>
+                                    <option value="Metal">Metal</option>
+                                    <option value="Pedra">Pedra</option>
+                                    <option value="Fantasma">Fantasma</option>
+                                    <option value="Escuridão">Escuridão</option>
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 border-primary">
                                 <select class="form-select" name="tipo2">
                                     <option value="">Selecione o tipo</option>
-                                    <option value="No">Normal</option>
-                                    <option value="Fo">Fogo</option>
-                                    <option value="Ag">Água</option>
-                                    <option value="El">Elétrico</option>
-                                    <option value="Gr">Grama</option>
-                                    <option value="Ge">Gelo</option>
-                                    <option value="Lu">Lutador</option>
-                                    <option value="Ve">Veneno</option>
-                                    <option value="Te">Terra</option>
-                                    <option value="Vo">Voador</option>
-                                    <option value="Ps">Psíquico</option>
-                                    <option value="In">Inseto</option>
-                                    <option value="Fa">Fada</option>
-                                    <option value="Dr">Dragão</option>
-                                    <option value="Me">Metal</option>
-                                    <option value="Pe">Pedra</option>
-                                    <option value="Ft">Fantasma</option>
-                                    <option value="Es">Escuridão</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Fogo">Fogo</option>
+                                    <option value="Água">Água</option>
+                                    <option value="Elétrico">Elétrico</option>
+                                    <option value="Grama">Grama</option>
+                                    <option value="Gelo">Gelo</option>
+                                    <option value="Lutador">Lutador</option>
+                                    <option value="Veneno">Veneno</option>
+                                    <option value="Terra">Terra</option>
+                                    <option value="Voador">Voador</option>
+                                    <option value="Psíquico">Psíquico</option>
+                                    <option value="Inseto">Inseto</option>
+                                    <option value="Fada">Fada</option>
+                                    <option value="Dragão">Dragão</option>
+                                    <option value="Metal">Metal</option>
+                                    <option value="Pedra">Pedra</option>
+                                    <option value="Fantasma">Fantasma</option>
+                                    <option value="Escuridão">Escuridão</option>
                                     <option value="Nenhum">Não Tem</option>
                                 </select>
                             </div>
